@@ -1,0 +1,163 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  height:100vh;
+  color:#fff;
+  overflow:hidden;
+  position:relative;
+}
+
+/* cinematic zoom background */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url("bg.jpg") center/cover no-repeat;
+  z-index:-2;
+  animation:cinemaZoom 16s ease-in-out infinite alternate;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.55));
+  z-index:-1;
+}
+
+@keyframes cinemaZoom{
+  0%{transform:scale(1);}
+  100%{transform:scale(1.18);}
+}
+
+/* ribbon */
+.top-ribbon{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(10px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.ribbon-title{
+  font-size:26px;
+  font-weight:900;
+}
+
+/* layout */
+.card{
+  height:100vh;
+  width:100%;
+  padding:95px 25px 90px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  text-align:center;
+}
+
+/* responsive welcome */
+.welcome-line{
+  white-space:nowrap;
+  font-size:clamp(28px,6vw,44px);
+  padding:0 10px;
+  text-shadow:0 2px 10px rgba(0,0,0,.5);
+}
+
+/* heading */
+.card h1{
+  font-weight:900;
+}
+
+/* heart area */
+.heart-box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+
+.big-heart{
+  font-size:100px;
+  animation:beat 1.2s infinite;
+}
+
+.tap-text{
+  font-size:26px;
+  font-family:'Parisienne', cursive;
+  color:#6fd3ff;
+  font-weight:600;
+  letter-spacing:.6px;
+}
+
+@keyframes beat{
+  50%{transform:scale(1.2);}
+}
+
+/* soft handwriting */
+.card p{
+  font-size:28px;
+  max-width:600px;
+  line-height:1.8;
+  font-family:'Parisienne', cursive;
+  color:#6fd3ff;
+  font-weight:600;
+  letter-spacing:.6px;
+}
+
+/* button */
+.btn{
+  padding:16px 44px;
+  background:#fff;
+  color:#ff4b7d;
+  border-radius:35px;
+  text-decoration:none;
+  font-weight:900;
+  font-size:22px;
+}
+
+/* particles */
+.hearts{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+}
+
+.heart-up{
+  position:absolute;
+  bottom:-60px;
+  animation:floatUp linear forwards;
+}
+
+.flower-down{
+  position:absolute;
+  top:-60px;
+  animation:fallDown linear forwards;
+}
+
+@keyframes floatUp{
+  to{transform:translateY(-110vh);opacity:0;}
+}
+
+@keyframes fallDown{
+  to{transform:translateY(110vh);opacity:0;}
+}
+
+footer{
+  position:fixed;
+  bottom:8px;
+  width:100%;
+  text-align:center;
+  font-size:15px;
+}

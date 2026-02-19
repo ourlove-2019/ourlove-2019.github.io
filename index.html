@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>For My Eternal Love ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* 🔐 password overlay */
+.lock-screen{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(8px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.lock-box{
+  background:rgba(255,255,255,.08);
+  border-radius:20px;
+  padding:30px 25px;
+  text-align:center;
+  width:90%;
+  max-width:320px;
+  backdrop-filter:blur(12px);
+}
+
+.lock-title{
+  font-size:26px;
+  font-weight:800;
+  margin-bottom:15px;
+}
+
+.lock-input{
+  width:100%;
+  padding:12px;
+  border-radius:25px;
+  border:none;
+  outline:none;
+  font-size:16px;
+  text-align:center;
+  margin-bottom:15px;
+}
+
+.lock-btn{
+  background:#ff4b7d;
+  color:#fff;
+  border:none;
+  padding:10px 22px;
+  border-radius:25px;
+  font-weight:700;
+  font-size:16px;
+}
+
+.lock-error{
+  color:#ff8080;
+  font-size:14px;
+  margin-top:8px;
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔐 PASSWORD POPUP -->
+<div class="lock-screen" id="lockScreen">
+  <div class="lock-box">
+    <div class="lock-title">💖 Private Love Page</div>
+    <input type="password" id="passInput" class="lock-input" placeholder="Enter Password">
+    <br>
+    <button class="lock-btn" onclick="checkPassword()">Unlock ❤️</button>
+    <div class="lock-error" id="lockError">Wrong password ❌</div>
+  </div>
+</div>
+
+<!-- particles -->
+<div class="hearts" id="hearts"></div>
+
+<!-- ribbon -->
+<div class="top-ribbon">
+  <div class="ribbon-title">FOR MY ETERNAL LOVE ❤️</div>
+</div>
+
+<!-- main -->
+<div class="card">
+
+  <h1 class="welcome-line">Welcome Niharika ✨💖</h1>
+
+  <div class="heart-box">
+    <div class="big-heart" id="loveHeart">❤️</div>
+    <div class="tap-text">Tap Me 💓</div>
+  </div>
+
+  <p>This page is a small surprise for you.</p>
+
+  <a href="page2.html" class="btn">Next ➜</a>
+
+</div>
+
+<footer>Made with ❤️ by Rakesh</footer>
+
+<!-- music -->
+<audio id="bgMusic" loop playsinline preload="auto">
+  <source src="./music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// 🔑 CHANGE PASSWORD HERE
+const correctPassword = "NiharikaRakesh2019#@";
+
+function checkPassword(){
+  const input = document.getElementById("passInput").value;
+  const error = document.getElementById("lockError");
+
+  if(input === correctPassword){
+    document.getElementById("lockScreen").style.display = "none";
+  }else{
+    error.style.display = "block";
+  }
+}
+
+// enter key support
+document.getElementById("passInput").addEventListener("keypress",function(e){
+  if(e.key === "Enter"){
+    checkPassword();
+  }
+});
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
